@@ -39,29 +39,48 @@ O **auniv** busca resolver esses problemas oferecendo uma **API centralizada, pa
     git clone https://github.com/Ddacosta-akirfa/auniv.git
     cd auniv
 2. Restaure as dependências
+
     ```bash
     dotnet restore
 2. Configure a string de conexão no **appsettings.json** para o seu banco de dados MySQL.
     ```json
     "ConnectionStrings": {         "DefaultConnection":"server=localhost;port=tua_porta;database=aunivdb;user=teu_usuario;password=tua_senhaa" }
 2. Execute as migrações do banco de dados
+
     ```bash
     dotnet ef database update
 2. Rode a aplicação
+
     ```bash
     dotnet run
 2. Acesse a documentação da API em:
+
     ```bash
     https://localhost:7164/scalar
+
 ## 📁 Estrutura do Projecto
-    ```txt
-    auniv/
-    ├── .idea/       # Configurações do JetBrains Rider/IDE
-    ├── Auniv/       # Código-fonte principal da API (.NET Core)
-    ├── .gitignore   # Arquivo que define o que será ignorado pelo Git
-    ├── Auniv.sln    # Arquivo de solução do Visual Studio
-    ├── LICENSE/     # Licença do projeto
-    └── README/      # Documentação principal do projecto
+O projecto tem a seguinte estrutura:
+``` 
+auniv/
+├── .idea/ # Configurações do JetBrains Rider/IDE
+├── Auniv/ # Código-fonte principal da API (.NET Core)
+│ ├── Controllers/ # Controladores da API (recebem requisições HTTP)
+│ ├── Data/ # Contexto do banco de dados
+│ │── Migrations/ # Migrações do Entity Framework Core
+│ ├── Enums/ # Enumerações utilizadas no projeto
+│ ├── Models/ # Modelos de dados e DTOs
+│ │ ├── Dtos/ # Objetos de transferência de dados
+│ │ └── Validacoes/ # Classes para validação de dados
+│ ├── Properties/ # Configurações do projecto
+│ ├── Routes/ # Definição de endpoints e rotas
+│ ├── program.cs # Arquivo principal que inicializa a aplicação
+│ └── auniv.http # Coleção de requisições HTTP (ex.: para teste com VS Code REST Client)
+├── .gitignore # Arquivo que define o que será ignorado pelo Git
+├── Auniv.sln # Arquivo de solução do Visual Studio (.sln)
+├── LICENSE # Licença do projeto (GPL v3)
+└── README.md # Documentação principal do projeto
+```
+
 
 ## __📌 Funcionalidades principais__
 
